@@ -19,7 +19,7 @@ import pickle
 # load the model from disk
 filename = 'nlp_model.pkl'
 model1 = pickle.load(open(filename, 'rb'))
-cvector=pickle.load(open('tranform.pkl','rb'))
+cvector=pickle.load(open('transform.pkl','rb'))
 app = Flask(__name__)
 
 @app.route('/')
@@ -51,7 +51,7 @@ def predict():
 #	cvector = CountVectorizer(min_df = 0.0, max_df = 1.0, ngram_range=(1,2))
 #	bow = cvector.fit_transform(bow)  # Fit the Data
 #    
-#   pickle.dump(cvector, open('tranform.pkl', 'wb'))
+#   pickle.dump(cvector, open('transform.pkl', 'wb'))
 #    
 #    
 #	from sklearn.model_selection import train_test_split
@@ -87,4 +87,4 @@ def predict():
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(debug=True, use_reloader=False)
